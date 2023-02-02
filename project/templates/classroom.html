@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block username %} {{username}} {%endblock%}
+
+{% block content %}
+{% for i in class_details %}
+{% block title %}<h1> {{i.class_name}}</h1>{% endblock %}
+{{ i.class_name }}
+{% endfor %}
+
+{% for i in assignments %}
+<h1> Assignment Name: {{ i.assignments_name }} </h1>
+<h4> Assignment Description: {{ i.assignment_description }} </h1>
+<h4> Due Date: {{ i.due_date }} </h1>
+{%endfor%}
+{%endblock%}
