@@ -12,6 +12,7 @@ class Classes(models.Model):
          return self.class_name
 
 class Assignments(models.Model):
+    id  = models.IntegerField(primary_key=True)
     assignments_name = models.CharField(max_length=120,null=False)
     assignment_description = models.CharField(max_length=800,null=False)
     class_id = models.CharField(max_length=8,null=False)
@@ -25,4 +26,13 @@ class UserClassData(models.Model):
     user_id = models.CharField(max_length=8,null=False)
     class_id = models.CharField(max_length=8,null=False)
     def __str__(self):
-        return self.user_id 
+        return self.user_id
+
+class UserAssignmentData(models.Model):
+    user_id = models.CharField(max_length=8,null=False)
+    assignment_id = models.CharField(max_length=8,null=False)
+    status = models.CharField(max_length=20,null=False)
+    recieved_grade = models.IntegerField(null=True)
+    comments = models.CharField(max_length=500, null = True)
+    def __str__(self):
+        return self.assignment_id
